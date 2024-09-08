@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5dc; /* Beige background */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            gap: 20px;
+            max-width: 600px;
+            margin: 20px;
+            background-color: #e6e6fa; /* Lavender background */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2, p {
+            margin: 10px 0;
+        }
+
+        button, a {
+            text-decoration: none;
+            color: #fff;
+            background: #4a4a4a;
+            padding: 12px 30px;
+            border-radius: 8px;
+            box-shadow: 0.5rem 1rem 3rem rgba(0, 0, 0, 0.3);
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover, a:hover {
+            background: #6a5acd; /* Slate blue for hover effect */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .container a {
+            display: block;
+            margin: 10px 0;
+            background: #4a4a4a;
+        }
+
+        .audio-controls a, .audio-controls button {
+            display: block;
+            margin: 10px auto;
+        }
+
+        .accordion {
+            cursor: pointer;
+            padding: 10px;
+            text-align: left;
+            background-color: #4a4a4a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .panel {
+            display: none;
+            padding: 10px;
+            background-color: #e6e6fa;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .panel ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .panel ul li {
+            margin-bottom: 10px;
+        }
+
+        .panel ul li a {
+            color: #4a4a4a;
+            text-decoration: none;
+        }
+
+        .band-song-link {
+            display: inline-block;
+            background-color: #4a4a4a;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+
+        .band-song-link:hover {
+            background-color: #6a5acd;
+        }
+
+        .message-box {
+            display: none;
+            padding: 20px;
+            background-color: #f0f8ff;
+            border: 1px solid #4a4a4a;
+            border-radius: 8px;
+            text-align: left;
+            max-width: 100%;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Initial Page -->
+        <div id="initial-page">
+            <h1>Welcome Mituu!!! This is going to be interesting that's for sure xD</h1>
+            <p>So all set, let's gooo then!</p>
+            <button id="start-btn">Start</button>
+        </div>
+
+        <!-- Options Page -->
+        <div id="options-page" class="hidden">
+            <h2>What would you like to do?</h2>
+            <div class="options-container">
+                <a href="#" id="listen-songs">Listen to Songs</a>
+                <a href="#" id="play-game">Play Games</a>
+                <a href="#" id="random-options">Random Options</a>
+            </div>
+        </div>
+
+        <!-- Songs Options -->
+        <div id="songs-options" class="hidden">
+            <h2>Choose a music category to listen to 🎵</h2>
+            <div class="audio-controls">
+                <a href="https://open.spotify.com/playlist/19gCXzlxQU0fjzdo5fPTNa?si=d52dac029af34e76" target="_blank">Songs That You Need</a>
+                <a href="https://open.spotify.com/playlist/1HxmUH1yivlNLsLgPWzNPH?si=ddd5d265064f41f6" target="_blank">Songs Resonating with Your Feelings</a>
+                <button id="bhajan-btn">Go to Bhajan Zone</button>
+                <button id="no-songs-btn">No, I Don't Want to Listen to Songs</button>
+            </div>
+            <button id="go-back-to-options-from-songs">Go Back</button>
+        </div>
+
+        <!-- Bhajan Zone -->
+        <div id="bhajan-zone" class="hidden">
+            <h2>Bhajan Zone</h2>
+            <div class="audio-controls">
+                <a href="https://www.youtube.com/watch?v=NL2pyiyn-jM" target="_blank">Bhajan 1</a>
+                <a href="https://open.spotify.com/track/2SlzvN3IVLdYRafUsDwKJ8?si=576c1d7adc384098" target="_blank">Bhajan 2</a>
+                <a href="https://youtu.be/BItNphbvdu8?si=OciZzurdZIVhVSrH" target="_blank">Bhajan 3</a>
+                <a href="https://youtu.be/5-Xoh7jKVo8?si=HY4dXmSnMLrDOPOt" target="_blank">Bhajan 4</a>
+                <p>(Special appearance: not a bhajan song but you should for sure listen to some of this band's songs)
+                <a href="https://youtu.be/HnLtNrvfZTU?si=W_AYmZLLjmTIsSN3" target="_blank" class="band-song-link">Band's Song</a></p>
+            </div>
+            <button id="go-back-to-songs">Go Back</button>
+        </div>
+
+        <!-- Game Options -->
+        <div id="play-games-options" class="hidden">
+            <h2>Let’s Play Some Games! 🎮</h2>
+            <div class="game-controls">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP5Qvsms7ZZOjT1KVF-szwz3akA37SzfLIhg&s" alt="Game Image" style="max-width: 100%; height: auto; border-radius: 10px;">
+                <ul>
+                    <li><a href="https://rock-paper-scissors-cyan-alpha.vercel.app/" target="_blank">Rock Paper Scissors</a></li>
+                    <li><a href="https://skribbl.io/" target="_blank">Skribbl (jab bhi jeetne ka man ho toh yaad kar lena xD, easy win rehni hai tumhare liye for sure hehhehe )</a></li>
+                    <li><a href="https://www.sporcle.com/" target="_blank">Quiz Compete</a></li>
+                    <li><a href="https://www.chess.com/" target="_blank">Play Chess</a></li>
+                </ul>
+                <button id="go-back-to-options-from-games">Go Back</button>
+            </div>
+        </div>
+
+        <!-- Random Options -->
+        <div id="random-options-page" class="hidden">
+            <h2>Some Random Options</h2>
+            <button class="accordion">Good Watch Suggestions</button>
+            <div class="panel">
+                <h3>Movies/Web Series</h3>
+                <ul>
+                    <li>I know ye sab dekhe hue honge but fir bhi here you go, trust me jab bhi man sa kare pick anyone of these you would feel really good</li>
+                    <li>Modern Family (random episodes)</li>
+                    <li>Zindagi Na Milegi Dobara</li>
+                    <li>Yeh Jawaani Hai Deewani</li>
+                    <li>3 Idiots</li>
+                    <li>Taare Zameen Par</li>
+                    <li>Pyaar Ka Punchnama</li>
+                </ul>
+            </div>
+            <button class="accordion">YouTube Recommendations</button>
+            <div class="panel">
+                <h3>Fun to Watch and Chill</h3>
+                <ul>
+                    <li>Zaid Ziz (if you are not a fan of comedy at least vlogs dekh hi sakte ho + ye Rajasthan se hai)</li>
+                    <li>Azooz</li>
+                    <li>Saiman Says</li>
+                    <li>Tanmay Bhat (and his OG AIB if nahi dekhe ho joki highly unlikely hai so give em a watch)</li>
+                    <li>Daddy (Preet Kayshap)</li>
+                </ul>
+            </div>
+            <button id="go-back-from-random">Go Back</button>
+        </div>
+
+        <!-- End Section -->
+        <div id="end-section" class="hidden">
+            <h2>Thank You! 🎉</h2>
+            <p>I hope you enjoyed the experience and had a few laughs. You're awesome!</p>
+        </div>
+    </div>
+
+    <script>
+        const showPage = (pageId) => {
+            document.querySelectorAll('.container > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        };
+
+        const confirmExit = async () => {
+            return new Promise((resolve) => {
+                const promptText = prompt("jaane se pehle ek achi si smile karke and type karke jaana padega .");
+                resolve(promptText === 'smile');
+            });
+        };
+
+        // Initial Page
+        document.getElementById('start-btn').addEventListener('click', () => showPage('options-page'));
+
+        // Options Page
+        document.getElementById('listen-songs').addEventListener('click', (e) => {
+            e.preventDefault();
+            showPage('songs-options');
+        });
+
+        document.getElementById('play-game').addEventListener('click', (e) => {
+            e.preventDefault();
+            showPage('play-games-options');
+        });
+
+        document.getElementById('random-options').addEventListener('click', (e) => {
+            e.preventDefault();
+            showPage('random-options-page');
+        });
+
+        // Songs Options
+        document.getElementById('no-songs-btn').addEventListener('click', () => {
+            showPage('bhajan-zone');
+        });
+
+        document.getElementById('bhajan-btn').addEventListener('click', () => {
+            showPage('bhajan-zone');
+        });
+
+        document.getElementById('go-back-to-options-from-songs').addEventListener('click', async () => {
+            if (await confirmExit()) {
+                showPage('options-page');
+            }
+        });
+
+        // Bhajan Zone
+        document.getElementById('go-back-to-songs').addEventListener('click', async () => {
+            if (await confirmExit()) {
+                showPage('songs-options');
+            }
+        });
+
+        // Game Options
+        document.getElementById('go-back-to-options-from-games').addEventListener('click', async () => {
+            if (await confirmExit()) {
+                showPage('options-page');
+            }
+        });
+
+        // Random Options
+        document.getElementById('go-back-from-random').addEventListener('click', async () => {
+            if (await confirmExit()) {
+                showPage('options-page');
+            }
+        });
+
+        // Accordion functionality
+        document.querySelectorAll('.accordion').forEach(button => {
+            button.addEventListener('click', () => {
+                const panel = button.nextElementSibling;
+                button.classList.toggle('active');
+                panel.style.display = panel.style.display === "block" ? "none" : "block";
+            });
+        });
+    </script>
+</body>
+</html>
