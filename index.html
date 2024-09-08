@@ -131,6 +131,17 @@
             max-width: 100%;
             margin: 10px auto;
         }
+
+        .poem-box {
+            padding: 20px;
+            background-color: #f0f8ff;
+            border: 1px solid #4a4a4a;
+            border-radius: 8px;
+            text-align: left;
+            max-width: 100%;
+            margin: 10px auto;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -222,6 +233,33 @@
                     <li>Tanmay Bhat (and his OG AIB if nahi dekhe ho joki highly unlikely hai so give em a watch)</li>
                     <li>Daddy (Preet Kayshap)</li>
                 </ul>
+                <!-- New Bakwas Section -->
+                <button class="accordion" id="bakwas-btn">Bakwas</button>
+                <div class="panel hidden" id="bakwas-panel">
+                    <div class="poem-box">
+                        <p>An untwined resonance</p>
+                        <p>A sort of uncanny resemblance</p>
+                        <p>The thoughts of wanting</p>
+                        <p>Need for longing</p>
+                        <p>A gist and gesture of getting there</p>
+                        <p>Your little heart and feeble mind</p>
+                        <p>Provoking and telling you something else</p>
+                        <p>Reminiscing those days</p>
+                        <p>Running back errands of memories</p>
+                        <p>Of when things were simpler</p>
+                        <p>Some part you closer</p>
+                        <p>And guess a bit more happier</p>
+                        <p>This void has been sort of harder to contemplate</p>
+                        <p>It's not at all easy to comprehend</p>
+                        <p>but you are gonna get there soon</p>
+                        <p>to the best version of yours</p>
+                        <p>to the special moments of what you have had thought of</p>
+                    </div>
+                    <p>It's quite okay to feel what you are and have been feeling for a while now, it may hurt a lot and I get it, because why not, it is lot of what you have gone through, and apart from the cliche fact that it is gonna get better, but no just trust me this time will pass soon as well. The void would be there for a while sure, but I know mitali is a strong person and she is gonna bounce back super nicely.</p>
+                    <p>I know it's really really hard right now for you, there's a lot going on there, but don't ever consider yourself alone there, this won't help but I would still say I will be there for you, I want to tell you are a good person, just remember the days well before, just remember how you have aced through many tough times you have faced.</p>
+                    <p>And of course, however much you would try it would still feel not too be too okay to you, and you would try to deny the fact that it's not hurting but it is okay, it is okay to feel what you are feeling, but please let yourself to just be around these thoughts alone, I mean to say is ki, thoda dukh hoga, dard hoga, bura bhi lagega, and thoda lagne bhi do, that's how the emotions will subside, but it is necessary to know and focus on things which are more important for you. Just don't ever try to ignore emotions you have been feeling and thoughts you have been dealing with, try to write them out, try to share them out, as said pehle bhi kabhi bhi if you feel like sharing things please kar hi dena, apne tak na rakhna, you can always call me as well.</p>
+                    <p>Idk why am I even saying this rn, but I guess I have acted as an asshole for a while before, but don't worry it would be okay, don't take things on your mind too seriously, exams aa rahe hai we need mitali acing them really good.</p>
+                </div>
             </div>
             <button id="go-back-from-random">Go Back</button>
         </div>
@@ -299,6 +337,12 @@
             if (await confirmExit()) {
                 showPage('options-page');
             }
+        });
+
+        // Bakwas Button
+        document.getElementById('bakwas-btn').addEventListener('click', () => {
+            const bakwasPanel = document.getElementById('bakwas-panel');
+            bakwasPanel.classList.toggle('hidden');
         });
 
         // Accordion functionality
